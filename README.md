@@ -1,0 +1,1 @@
+# NewTech_test_task_Hackaton
