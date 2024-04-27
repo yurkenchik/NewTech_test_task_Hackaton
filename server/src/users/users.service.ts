@@ -33,4 +33,10 @@ export class UsersService {
         return user
     }
 
+    async deleteUser(id: string): Promise<User> {
+        const user = await this.getUserById(id)
+
+        return this.userRepository.remove(user)
+    }
+
 }

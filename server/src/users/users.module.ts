@@ -11,7 +11,8 @@ import {User} from "./users.entity";
         TypeOrmModule.forFeature([User])
     ],
     exports: [
-        TypeOrmModule
+        TypeOrmModule,
+        UsersService
     ]
 })
 export class UsersModule {}
