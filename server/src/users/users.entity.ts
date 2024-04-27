@@ -38,6 +38,9 @@ export class User {
     @Column({type: "varchar", nullable: true})
     banReason: string
 
+    @Column({type: "varchar", nullable: false})
+    password: string
+
     @Column({type: "varchar"})
     role: string = "USER"
 

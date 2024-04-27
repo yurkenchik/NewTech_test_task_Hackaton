@@ -1,6 +1,10 @@
-import {IsEmail, IsNotEmpty, IsString} from "class-validator";
+import {IsEmail, IsNotEmpty, IsString, Length} from "class-validator";
 
 export class CreateUserDto {
+
+    @IsEmail({}, {message: "Invalid email address"})
+    @IsNotEmpty({message: "Email is required"})
+    readonly email: string;
 
     @IsNotEmpty({message: "username can not be empty"})
     readonly username: string;
@@ -12,8 +16,7 @@ export class CreateUserDto {
     @IsString()
     readonly lastname: string;
 
-    @IsEmail({}, {message: "Invalid email address"})
-    @IsNotEmpty({message: "Email is required"})
-    readonly email: string;
+    @Length(6, 122)
+    readonly password: string
 
 }
