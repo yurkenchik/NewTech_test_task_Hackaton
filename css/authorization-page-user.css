@@ -1,0 +1,160 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'League Spartan';
+    font-style: normal;
+}
+
+body{ 
+    background: rgba(166, 157, 157, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 3.2rem;
+}
+
+.logo {
+    margin-right: 8rem;
+}
+
+.logo img {
+    width: 18rem;
+    height: 6rem;
+}
+
+.logo p {
+    margin: 0.8rem;
+    color: rgb(255, 255, 255);
+}
+
+.authorization {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {  
+    text-align: center;
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+    font-weight: 700 ;
+    font-family: 'Open Sans';
+    font-style: normal;
+
+}
+
+.form-container { 
+    width: 33.6rem;
+    background-color: rgba(217, 217, 217, 1);
+    padding: 1.2rem 2.4rem;
+    color: rgba(89, 81, 81, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container p {
+    padding-bottom: 1.2rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+  
+#user {
+    z-index: 2;
+    margin-right: -0.5rem;
+    color: rgb(255, 255, 255);
+    background-color: rgba(89, 81, 81, 1);
+}
+    
+#mentor {
+    z-index: 1;
+    margin-left: -0.5rem;
+    color: rgba(166, 157, 157, 1);
+    background-color: rgba(255, 255, 255, 0.362);
+}
+
+#mentor:hover {
+    background-color: rgba(255, 255, 255, 0.758);
+    transition: all 400ms;
+}
+
+.choise-user button {
+    position: relative;
+    padding: 0.4rem 0.8rem;
+    width: 8.8rem;
+    height: 2.5rem;
+    border: 0;
+    border-radius: 80px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.2rem;
+}
+
+.form button:hover {
+    background-color: rgb(149, 137, 137);
+    transition: all 400ms;
+}
+
+.choise-user {
+    position: absolute;
+    top: 4rem;
+}
+
+.input input {
+    width: 27.4rem;
+    height: 2.4rem;
+    border: 1.6px solid rgba(89, 81, 81, 1);
+    border-radius: 80px;
+    margin: 0.4rem;
+    background-color: rgba(217, 217, 217, 1);
+    padding-left: 1rem;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1rem;
+    color: rgba(89, 81, 81, 1)  ;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.save {
+    padding: 0.4rem 0.8rem;
+    width: 7rem;
+    height: 2.5rem;
+    border: 0;
+    border-radius: 80px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.2rem;
+    margin-top: 0.8rem;
+    background-color: rgba(89, 81, 81, 1);
+    color: rgba(217, 217, 217, 1);
+}
+
+.form a:active, .form a {
+    margin-top: 0.5rem;
+    text-decoration-line: none;
+    color: rgba(89, 81, 81, 1);
+}
+
+.form a:hover {
+    color: rgb(161, 146, 146);
+    transition: all 400ms;
+}
