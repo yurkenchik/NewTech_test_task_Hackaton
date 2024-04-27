@@ -1,6 +1,6 @@
 import {Controller, Get, HttpException, HttpStatus, UseGuards} from '@nestjs/common';
 import {AssistantsService} from "./assistants.service";
-import {AuthAssistantGuard} from "../quards/auth-assistant.guarrd";
+import {AuthAssistantGuard} from "../guards/auth-assistant.guarrd";
 
 @Controller('assistants')
 export class AssistantsController {
