@@ -4,6 +4,8 @@ import {RegisterUserDto} from "./dto/register-user.dto";
 import {ValidationPipe} from "../pipes/validation.pipe";
 import {LoginUserDto} from "./dto/login-user.dto";
 import {AuthUserGuard} from "./auth-user.guard";
+import { TokenResponse } from '../auth-assistant/auth-assistant.service';
+import { User } from '../users/users.entity';
 
 @Controller('auth-user')
 export class AuthUserController {
@@ -13,7 +15,7 @@ export class AuthUserController {
 
     @UsePipes(ValidationPipe)
     @Post("/registration")
-    async registration(@Body() registerUserDto: RegisterUserDto) {
+    async registration(@Body() registerUserDto: RegisterUserDto): Promise<[TokenResponse, User]> {
         try {
             return this.authUserService.registration(registerUserDto)
         } catch (error) {
@@ -23,7 +25,7 @@ export class AuthUserController {
 
     @UsePipes(ValidationPipe)
     @Post("/login")
-    async login(@Body() loginUserDto: LoginUserDto) {
+    async login(@Body() loginUserDto: LoginUserDto): Promise<[TokenResponse, User]> {
         try {
             return this.authUserService.login(loginUserDto)
         } catch (error) {
@@ -33,7 +35,7 @@ export class AuthUserController {
 
     @UseGuards(AuthUserGuard)
     @Delete("/delete-account")
-    async deleteAccount(userId: string) {
+    async deleteAccount(userId: string): Promise<User> {
         try {
             return this.authUserService.leaveFromAccount(userId)
         } catch (error) {

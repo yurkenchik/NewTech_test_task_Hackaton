@@ -6,6 +6,8 @@ import * as bcrypt from "bcrypt"
 import {TokensService} from "../tokens/tokens.service";
 import {LoginUserDto} from "./dto/login-user.dto";
 import {SupportCategoriesEnum} from "../enums/support-categories.enum";
+import { TokenResponse } from '../auth-assistant/auth-assistant.service';
+import { User } from '../users/users.entity';
 
 @Injectable()
 export class AuthUserService {
@@ -14,7 +16,7 @@ export class AuthUserService {
                 private readonly tokensService: TokensService) {
     }
 
-    async registration(registerUserDto: RegisterUserDto) {
+    async registration(registerUserDto: RegisterUserDto): Promise<[TokenResponse, User]> {
 
         const emailChecker = await this.usersService.getUserByEmail(registerUserDto.email)
 
@@ -31,7 +33,7 @@ export class AuthUserService {
         return  [ generatedToken, registeredUser ]
     }
 
-    async validateUser(loginUserDto: LoginUserDto) {
+    async validateUser(loginUserDto: LoginUserDto): Promise<User> {
         const user = await this.usersService.getUserByEmail(loginUserDto.email)
 
         if (!user) {
@@ -45,7 +47,7 @@ export class AuthUserService {
 
     }
 
-    async login(loginUserDto: LoginUserDto) {
+    async login(loginUserDto: LoginUserDto): Promise<[TokenResponse, User]> {
         const user = await this.validateUser(loginUserDto)
         const generatedToken = await this.tokensService.generateToken(user)
 
@@ -53,7 +55,7 @@ export class AuthUserService {
 
     }
 
-    async leaveFromAccount(id: string) {
+    async leaveFromAccount(id: string): Promise<User> {
         const user = await this.usersService.getUserById(id)
 
         return this.usersService.deleteUser(id)
