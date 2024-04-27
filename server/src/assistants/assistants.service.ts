@@ -35,4 +35,8 @@ export class AssistantsService {
         return assistant
     }
 
+    async getAssistants() {
+        return await this.assistantRepository.find()
+    }
+
 }

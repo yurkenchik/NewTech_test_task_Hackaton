@@ -25,7 +25,7 @@ export class AuthUserGuard implements CanActivate {
             const user = this.jwtService.verify(token, { secret: "secret" })
 
             req.user = user
-            return true
+            return user.role === "USER"
         } catch (error) {
             console.log(error)
             throw new UnauthorizedException({message: this.unauthorizedMessage})
