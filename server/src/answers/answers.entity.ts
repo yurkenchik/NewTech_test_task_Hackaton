@@ -48,4 +48,8 @@ export class Answer {
     @JoinTable()
     answerComments: AnswerComment[]
 
+    @ManyToOne(() => Question, question => question.answers)
+    question: Question
+
+
 }
