@@ -7,39 +7,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UHelpMe</title>
 </head>
-<body>
-    <div class="header">    <img class="logo" src="/photos/logo.png" alt="">
-        <form action="" class="search_bar">
+<div className="main-page-body">
+
+    <div className="main-page-header">    <img className="main-page-logo" src="/photos/logo.png" alt="">
+        <form action="" className="search_bar">
             <input placeholder="ПОШУК"  type="search" hidden>
-            <button type="submit"> <img class="search_icon" src="photos/search.png" alt=""></button>
+            <button type="submit"> <img className="main-page-search_icon" src="/photos/search.png" alt=""></button>
         </form>
 
         <!-- Button to trigger modal -->
-        <button class="create_new_button">Create New Question</button>
+        <button className="main-page-create_new_button">Create New Question</button>
 
         <!-- The Modal -->
-        <div id="myModal" class="modal">
+        <div id="main-page-myModal" className="main-page-modal">
         
           <!-- Modal content -->
-          <div class="modal-content">
-            <span class="close">&times;</span>
+          <div className="main-page-modal-content">
+            <span className="main-page-close">&times;</span>
             <h2>Create New Question</h2>
-            <form id="questionForm">
-              <label class="questionTitle_label" for="questionTitle">Title:</label><br>
-              <input type="text" id="questionTitle" name="questionTitle" required><br>
-              <label for="questionDescription">Description:</label><br>
-              <textarea id="questionDescription" name="questionDescription" required></textarea><br>
-              <button type="submit" class="submit_button">Submit</button>
+            <form id="main-page-questionForm">
+              <label class="main-page-questionTitle_label" for="main-page-questionTitle">Title:</label><br>
+              <input type="text" id="main-page-questionTitle" name="main-page-questionTitle" required><br>
+              <label for="main-page-questionDescription">Description:</label><br>
+              <textarea id="main-page-questionDescription" name="main-page-questionDescription" required></textarea><br>
+              <button type="submit" main-page-className="main-page-submit_button">Submit</button>
             </form>
           </div>
         
         </div>        
-        <a class="profile_button" href="/html/profile_page.html">Profile</a>
+        <a className="main-page-profile_button" href="/html/profile_page.html">Profile</a>
 
 
     </div>
 
 
 <script src="/js/main_page.js"></script>
-</body>
+
+</div>
 </html>
