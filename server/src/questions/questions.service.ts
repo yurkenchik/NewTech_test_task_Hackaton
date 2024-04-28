@@ -15,12 +15,21 @@ export class QuestionsService {
 
     async getQuestions(): Promise<Question[]> {
         return this.questionRepository.find({
-            relations: ["user"]
+            relations: ["author"]
         })
     }
 
-    async getYourQuestion(userId: string, questionId: string): Promise<Question> {
-        const user = await this.usersService.getUserById(userId)
+    async getYourQuestions(email: string): Promise<Question[]> {
+        const user = await this.usersService.getUserByEmail(email)
+        const questions = await this.questionRepository.find({
+            where: {author: user}
+        })
+
+        return questions
+    }
+
+    async getYourQuestion(email: string, questionId: string): Promise<Question> {
+        const user = await this.usersService.getUserByEmail(email)
         const question = await this.questionRepository.findOne({
             where: {id: questionId, author: user},
             relations: ["answers"]
@@ -28,6 +37,7 @@ export class QuestionsService {
 
         return question
     }
+
 
     async getSomeonesQuestion(username: string, questionId: string): Promise<Question> {
         const user = await this.usersService.getUserByUsername(username)
@@ -39,9 +49,10 @@ export class QuestionsService {
         return question
     }
 
-    async createQuestion(createQuestionDto: CreateQuestionDto, userId: string): Promise<Question> {
+    async createQuestion(createQuestionDto: CreateQuestionDto, email: string): Promise<Question> {
 
-        const user = await this.usersService.getUserById(userId)
+        const user = await this.usersService.getUserByEmail(email)
+        console.log(user)
         const question = this.questionRepository.create(createQuestionDto)
 
         question.author = user
@@ -50,9 +61,9 @@ export class QuestionsService {
 
     }
 
-    async deleteQuestion(userId: string, questionId: string): Promise<Question> {
+    async deleteQuestion(email: string, questionId: string): Promise<Question> {
 
-        const user = await this.usersService.getUserById(userId)
+        const user = await this.usersService.getUserByEmail(email)
         const question = await this.questionRepository.findOne({
             where: {id: questionId, author: user}
         })
@@ -60,8 +71,8 @@ export class QuestionsService {
         return await this.questionRepository.remove(question)
     }
 
-    async getOneQuestion(userId: string, questionId: string): Promise<Question> {
-        const user = await this.usersService.getUserById(userId)
+    async getOneQuestion(userEmail: string, questionId: string): Promise<Question> {
+        const user = await this.usersService.getUserByEmail(userEmail)
         const question = await this.questionRepository.findOne({
             where: {id: questionId, author: user}
         })

@@ -1,4 +1,4 @@
-import {Body, Controller, Get, HttpException, HttpStatus, Param, Post, Req, UseGuards} from '@nestjs/common';
+import {Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Post, Req, UseGuards} from '@nestjs/common';
 import {QuestionsService} from "./questions.service";
 import {AuthUserGuard} from "../guards/auth-user.guard";
 import {AuthAssistantGuard} from "../guards/auth-assistant.guarrd";
@@ -6,6 +6,7 @@ import { AuthMutualGuard } from 'src/guards/auth-mutual.guard';
 import {CreateQuestionDto} from "./dto/create-question.dto";
 import {Question} from "./questions.entity";
 import {ApiOperation, ApiResponse} from "@nestjs/swagger";
+import {Request} from "express";
 
 @Controller('questions')
 export class QuestionsController {
@@ -28,6 +29,18 @@ export class QuestionsController {
         }
     }
 
+    @ApiResponse({status: 200, type: Question})
+    @UseGuards(AuthMutualGuard)
+    @Get("/get-your-questions")
+    async getYourQuestions(@Req() request): Promise<Question[]> {
+        try {
+            const email = request.user.email
+            return this.questionsService.getYourQuestions(email)
+        } catch (error) {
+            throw new HttpException(error.message, HttpStatus.INTERNAL_SERVER_ERROR)
+        }
+    }
+
     @ApiOperation({
         summary: "Creation a question",
         description: "This function creates a question that is attached for the user, that creates it via user id from token"
@@ -38,7 +51,7 @@ export class QuestionsController {
     async createQuestion(@Body() createQuestionDto: CreateQuestionDto,
                          @Req() request): Promise<Question> {
         try {
-            const userId = request.user.id
+            const userId = request.user.email
             return this.questionsService.createQuestion(createQuestionDto, userId)
         } catch (error) {
             throw new HttpException(error.message, HttpStatus.INTERNAL_SERVER_ERROR)
@@ -51,11 +64,11 @@ export class QuestionsController {
     })
     @ApiResponse({status: 200, type: Question})
     @UseGuards(AuthUserGuard)
-    @Post("/create-question/:postId")
+    @Get("/create-question/:questionId")
     async getYourQuestion(@Req() request,
-                          @Param("postId") questionId: string): Promise<Question> {
+                          @Param("questionId") questionId: string): Promise<Question> {
         try {
-            const userId = request.user.id
+            const userId = request.user.email
             return this.questionsService.getYourQuestion(userId, questionId)
         } catch (error) {
             throw new HttpException(error.message, HttpStatus.INTERNAL_SERVER_ERROR)
@@ -68,7 +81,7 @@ export class QuestionsController {
     })
     @ApiResponse({status: 200, type: Question})
     @UseGuards(AuthUserGuard)
-    @Post("/get-someones-question/:username/:questionId")
+    @Get("/get-someones-question/:username/:questionId")
     async getSomeonesQuestion(@Param("username") username: string,
                               @Param("questionId") postId: string): Promise<Question> {
         try {
@@ -79,18 +92,19 @@ export class QuestionsController {
     }
 
 
+
     @ApiOperation({
         summary: "Getting someones question",
         description: "This function returns someones question"
     })
     @ApiResponse({status: 200, type: Question})
     @UseGuards(AuthUserGuard)
-    @Post("/get-someones-question/:username/:questionId")
+    @Delete("/delete-question/:questionId")
     async deleteQuestion(@Req() request,
                          @Param("questionId")  questionId: string): Promise<Question> {
         try {
-            const userId = request.user.id
-            return this.questionsService.getSomeonesQuestion(userId, questionId)
+            const email = request.user.email
+            return this.questionsService.getSomeonesQuestion(email, questionId)
         } catch (error) {
             throw new HttpException(error.message, HttpStatus.INTERNAL_SERVER_ERROR)
         }
