@@ -7,40 +7,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
 </head>
-<body>
+<div className="profile-body">
 
-    <div class="left_area">
-        <label for="photo-upload" class="photo-upload-btn">
-        <img d="selected-photo" src="/photos/profile_image.png" alt="Profile Photo">
+    <div className="profile-left_area">
+        <label for="profile-photo-upload" className="profile-photo-upload-btn">
+        <img id="profile-selected-photo" src="/photos/profile_image.png" alt="Profile Photo">
         </label>
 
-        <input type="file" id="photo-upload" style="display: none;">
+        <input type="file" id="profile-photo-upload" style="display: none;">
 
-        <div class="user_nickname">
+        <div className="profile-user_nickname">
             <span>Nickname</span>
-            <button class="button_for_change_name""><i class="fa fa-pencil"></i></button>
+            <button className="profile-button_for_change_name""><i className="fa fa-pencil"></i></button>
         </div>
         
-    <div class="name">
-        <label for="name">Name:</label>
-        <span id="name">Name</span>
+    <div className="profile-name">
+        <label for="profile-name">Name:</label>
+        <span id="profile-name">Name</span>
     </div>                
-    <div class="surname">
-        <label for="surname">Surname:</label>
-        <span id="surname">Surname</span>
+    <div className="profile-surname">
+        <label for="profile-surname">Surname:</label>
+        <span id="profile-surname">Surname</span>
     </div>                
-    <div class="email">
-        <label for="email">Email:</label>
-        <span id="email">Email</span>
+    <div className="profile-email">
+        <label for="profile-email">Email:</label>
+        <span id="profile-email">Email</span>
     </div>                
-    <div class="phone_number">
-        <label for="phone_number">Phone number:</label>
-        <span id="phone_number">+389999999999</span>
+    <div className="profile-phone_number">
+        <label for="profile-phone_number">Phone number:</label>
+        <span id="profile-phone_number">+389999999999</span>
     </div>                
     
-    <div class="certificates">
-        <label for="certificates">Certificates:</label>
-        <ul id="certificates">
+    <div className="profile-certificates">
+        <label for="profile-certificates">Certificates:</label>
+        <ul id="profile-certificates">
             <li>Certificate 1</li>
             <li>Certificate 2</li>
             <li>Certificate 3</li>
@@ -50,12 +50,13 @@
 
     </div>
 
-    <div class="content_area">
-        <a class="logo" href="/html/main_page.html"> <img  src="/photos/logo.png" alt=""> </a>
-        <div class="questions_area"></div>
+    <div className="profile-content_area">
+        <a className="profile-logo" href="/html/main_page.html"> <img  src="/photos/logo.png" alt=""> </a>
+        <div className="profile-questions_area"></div>
     </div>
 
 
 <script src="/js/profile_page.js"></script>
-</body>
+
+</div>
 </html>

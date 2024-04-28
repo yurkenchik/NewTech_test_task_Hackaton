@@ -1,6 +1,6 @@
-document.getElementById('photo-upload').addEventListener('change', function(event) {
+document.getElementById('profile-photo-upload').addEventListener('change', function(event) {
     var selectedFile = event.target.files[0]; 
-    var selectedPhoto = document.getElementById('selected-photo');
+    var selectedPhoto = document.getElementById('profile-selected-photo');
 
     var reader = new FileReader(); // Створюємо об'єкт FileReader
 

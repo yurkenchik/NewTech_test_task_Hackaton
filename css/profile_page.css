@@ -2,7 +2,12 @@ html{
     height: 100%;
 }
 
-body{
+.profile-body button{
+    cursor: pointer;
+}
+
+
+.profile-body{
     display: flex;
     background-color:#A69D9D;
     padding: 0;
@@ -12,35 +17,31 @@ body{
     min-height: 100%;
 }
 
-button{
-    cursor: pointer;
-}
-
-.content_area{
+.profile-content_area{
     display: flex;
     flex-direction: column;
     width: 77%;
     display: flex;
 }
 
-.content_area .logo{
+.profile-content_area .profile-logo{
     height: 80px;
     margin-left: auto;
     margin-right: 50px;
     margin-top: 30px;
 }
 
-.logo img{
+.profile-logo img{
     height: 80px;
 }
 
-.questions_area{
+.profile-questions_area{
     padding: 4%;
     height: 100%;
     width: 92%;
 }
 
-.left_area{
+.profile-left_area{
     display: flex;
     flex-direction: column;
     align-items:flex-start;
@@ -49,7 +50,7 @@ button{
     border-right: 3px solid #a7a7a7;
 }
 
-.user_nickname{
+.profile-user_nickname{
     align-self: center;
     margin-top: 10px;
     text-align: center;
@@ -58,19 +59,19 @@ button{
     align-items:center;
     flex-direction: row;
 }
-.user_nickname button{
+.profile-user_nickname button{
     margin-left: 8px;
     border: 0;
     font-size:18px;
     background-color: #A69D9D;
 }
 
-.left_area .user_nickname span{
+.profile-left_area .profile-user_nickname span{
     font-size: 20px;
     font-weight:600;
 }
 
-.photo-upload-btn {
+.profile-photo-upload-btn {
     margin-left: auto;
     margin-right: auto;
     margin-top: 25px;
@@ -80,7 +81,7 @@ button{
     border-radius: 100%; 
 }
 
-.photo-upload-btn img {
+.profile-photo-upload-btn img {
     width: 130px;
     height: 130px;
     border-radius: 100%; 
@@ -88,26 +89,26 @@ button{
 }
 
 
-.name,
-.surname,
-.email,
-.phone_number,
-.certificates{
+.profile-name,
+.profile-surname,
+.profile-email,
+.profile-phone_number,
+.profile-certificates{
     font-size: 19px;
     margin-top: 10px;
 }
 
-.certificates{
+.profile-certificates{
     display: flex;
     min-width: 100%;
 }
 
-.certificates ul{
+.profile-certificates ul{
     padding-left: 30px;    
     margin-bottom: auto;
     margin-top: 0px;
 }
 
-.name{
+.profile-name{
     margin-top: 20px;
 }
