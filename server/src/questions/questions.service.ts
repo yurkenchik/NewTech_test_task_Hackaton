@@ -80,4 +80,26 @@ export class QuestionsService {
         return question
     }
 
+    async likeQuestion(userEmail: string, questionId: string): Promise<Question> {
+        const user = await this.usersService.getUserByEmail(userEmail)
+        const question = await this.questionRepository.findOne({
+            where: {id: questionId, author: user}
+        })
+
+        question.likes += question.likes
+
+        return await this.questionRepository.save(question)
+    }
+
+    async dislikeQuestion(userEmail: string, questionId: string): Promise<Question> {
+        const user = await this.usersService.getUserByEmail(userEmail)
+        const question = await this.questionRepository.findOne({
+            where: {id: questionId, author: user}
+        })
+
+        question.dislikes += question.dislikes
+
+        return await this.questionRepository.save(question)
+    }
+
 }
