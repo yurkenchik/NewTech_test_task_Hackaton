@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import {MiddlewareConsumer, Module, NestModule} from '@nestjs/common';
 import { TypeOrmModule } from "@nestjs/typeorm";
 import * as process from "process";
 import { ConfigModule } from "@nestjs/config";
@@ -28,13 +28,13 @@ import { AnswerCommentsModule } from './answer-comments/answer-comments.module';
 import { AuthAssistantController } from './auth-assistant/auth-assistant.controller';
 import { AuthAssistantService } from './auth-assistant/auth-assistant.service';
 import { AuthAssistantModule } from './auth-assistant/auth-assistant.module';
-import { dataSourceOptions } from "./database/data-source";
 import {User} from "./users/users.entity";
 import {Question} from "./questions/questions.entity";
 import {QuestionComment} from "./question-comments/question-comments.entity";
 import {Assistant} from "./assistants/assistants.entity";
 import {Answer} from "./answers/answers.entity";
 import {AnswerComment} from "./answer-comments/answer-comments.entity";
+import {JwtUserMiddleware} from "./middlewares/jwt-user.middleware";
 
 @Module({
   controllers: [
@@ -89,4 +89,8 @@ import {AnswerComment} from "./answer-comments/answer-comments.entity";
       AuthAssistantModule
   ]
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+    configure(consumer: MiddlewareConsumer): any {
+        consumer.apply(JwtUserMiddleware).forRoutes("/questions/*", "question-comments/*")
+    }
+}
