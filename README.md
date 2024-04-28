@@ -1,6 +1,29 @@
-# Hi, this is repository for test task  in Hackaton
-# members: 
-# [yurkenchik](https://github.com/yurkenchik)
-# [sergiyclas](https://github.com/sergiyclas)
-# [RomanNocachok](https://github.com/RomanNovachok)
-# [Tuchechka](https://github.com/Tuchechka)
+# Привіт, це репозиторій команди #NewTech для тестового завдання від BEST::HACKath0n
+
+- Нашим розв'язком до поставленої задачі - є веб-сайт UHelpMe. 
+- Це є сайт, який дозволяє потребуючим допомоги виставляти термінові запити, а охочим приймати їх.
+- Фронтенд веб-сайту написаний на React, бекенд - Nest js + TypeScript. 
+- Дизайн зроблений по фігмі:
+https://www.figma.com/file/PTMAwfVvnSSVHIIXjKXcSC/Untitled?type=design&node-id=0%3A1&mode=design&t=bFopZmH3OrHGDqbt-1
+
+# Функціонал:
+1. На головній сторінці: є можливість переглянути усі наявні запити, поставити свій запит, в пошуковії стрічці - знайти потрібний запит, а також можливість переходів на інші сторінки.
+2. Реалізовані сторінки реєстрації та авторизації для користувачів(потребуючих допомоги) та асистентів(волонтерів).
+3. Сторінка профілю, де можна загрузити власну фотографію та різні сертифікати.
+4. Можливість детальніше переглянути запит, а також написати свій коментар під запитом для асистентів для надання допомоги і підтримки. 
+
+# Як переглянути наше рішення?
+1. У папці server - є докер. Виконавши команду у терміналі(у папці з докером) + мати активний запущений докер: docker-compose up
+2. Це у папці сервер у терміна введення команд:
+1) npm install
+2) npm run start:dev (для ррозробки)
+3) npm run start (для продакшина)
+4) Перехід по висвітленому посиланні.
+   
+# Учасники команди: 
+- [Yura](https://github.com/yurkenchik) - бекенд
+- [Serhiy](https://github.com/sergiyclas) - бекенд
+- [Roman](https://github.com/RomanNovachok) - фронтенл
+- [Nazar](https://github.com/Tuchechka) - фронтенд
+- [Viktoria](https://www.behance.net/b8b1baba/appreciated) - дизайнер
+
