@@ -58,7 +58,15 @@ export class QuestionsService {
         })
 
         return await this.questionRepository.remove(question)
+    }
 
+    async getOneQuestion(userId: string, questionId: string): Promise<Question> {
+        const user = await this.usersService.getUserById(userId)
+        const question = await this.questionRepository.findOne({
+            where: {id: questionId, author: user}
+        })
+
+        return question
     }
 
 }
