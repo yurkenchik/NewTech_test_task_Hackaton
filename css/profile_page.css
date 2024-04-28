@@ -16,37 +16,56 @@ button{
     cursor: pointer;
 }
 
-.logo{
+.content_area{
+    display: flex;
+    flex-direction: column;
+    width: 77%;
+    display: flex;
+}
+
+.content_area .logo{
     height: 80px;
     margin-left: auto;
-    margin-bottom: auto;
     margin-right: 50px;
     margin-top: 30px;
 }
 
+.logo img{
+    height: 80px;
+}
+
+.questions_area{
+    padding: 4%;
+    height: 100%;
+    width: 92%;
+}
+
 .left_area{
     display: flex;
-    align-items:center;
     flex-direction: column;
-    width: 22%;
+    align-items:flex-start;
+    padding-left: 25px;
+    width: 23%;
     border-right: 3px solid #a7a7a7;
 }
 
-.user_name{
+.user_nickname{
+    align-self: center;
+    margin-top: 10px;
     text-align: center;
     height: 40px;
     display: flex;
     align-items:center;
     flex-direction: row;
 }
-.user_name button{
+.user_nickname button{
     margin-left: 8px;
     border: 0;
     font-size:18px;
     background-color: #A69D9D;
 }
 
-.left_area p{
+.left_area .user_nickname span{
     font-size: 20px;
     font-weight:600;
 }
@@ -66,4 +85,29 @@ button{
     height: 130px;
     border-radius: 100%; 
     border: 2px solid #ccc; 
+}
+
+
+.name,
+.surname,
+.email,
+.phone_number,
+.certificates{
+    font-size: 19px;
+    margin-top: 10px;
+}
+
+.certificates{
+    display: flex;
+    min-width: 100%;
+}
+
+.certificates ul{
+    padding-left: 30px;    
+    margin-bottom: auto;
+    margin-top: 0px;
+}
+
+.name{
+    margin-top: 20px;
 }

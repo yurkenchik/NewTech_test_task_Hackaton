@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/main_page.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UHelpMe</title>
+</head>
+<body>
+    <div class="header">    <img class="logo" src="/photos/logo.png" alt="">
+        <form action="" class="search_bar">
+            <input placeholder="ПОШУК"  type="search" hidden>
+            <button type="submit"> <img class="search_icon" src="photos/search.png" alt=""></button>
+        </form>
+
+        <!-- Button to trigger modal -->
+        <button class="create_new_button">Create New Question</button>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+        
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Create New Question</h2>
+            <form id="questionForm">
+              <label class="questionTitle_label" for="questionTitle">Title:</label><br>
+              <input type="text" id="questionTitle" name="questionTitle" required><br>
+              <label for="questionDescription">Description:</label><br>
+              <textarea id="questionDescription" name="questionDescription" required></textarea><br>
+              <button type="submit" class="submit_button">Submit</button>
+            </form>
+          </div>
+        
+        </div>        
+        <a class="profile_button" href="/html/profile_page.html">Profile</a>
+
+
+    </div>
+
+
+<script src="/js/main_page.js"></script>
+</body>
+</html>

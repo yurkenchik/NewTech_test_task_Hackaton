@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/profile_page.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+</head>
+<body>
+
+    <div class="left_area">
+        <label for="photo-upload" class="photo-upload-btn">
+        <img d="selected-photo" src="/photos/profile_image.png" alt="Profile Photo">
+        </label>
+
+        <input type="file" id="photo-upload" style="display: none;">
+
+        <div class="user_nickname">
+            <span>Nickname</span>
+            <button class="button_for_change_name""><i class="fa fa-pencil"></i></button>
+        </div>
+        
+    <div class="name">
+        <label for="name">Name:</label>
+        <span id="name">Name</span>
+    </div>                
+    <div class="surname">
+        <label for="surname">Surname:</label>
+        <span id="surname">Surname</span>
+    </div>                
+    <div class="email">
+        <label for="email">Email:</label>
+        <span id="email">Email</span>
+    </div>                
+    <div class="phone_number">
+        <label for="phone_number">Phone number:</label>
+        <span id="phone_number">+389999999999</span>
+    </div>                
+    
+    <div class="certificates">
+        <label for="certificates">Certificates:</label>
+        <ul id="certificates">
+            <li>Certificate 1</li>
+            <li>Certificate 2</li>
+            <li>Certificate 3</li>
+            <li>Certificate 4</li>
+        </ul>
+    </div>
+
+    </div>
+
+    <div class="content_area">
+        <a class="logo" href="/html/main_page.html"> <img  src="/photos/logo.png" alt=""> </a>
+        <div class="questions_area"></div>
+    </div>
+
+
+<script src="/js/profile_page.js"></script>
+</body>
+</html>
