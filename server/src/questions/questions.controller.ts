@@ -1,4 +1,16 @@
-import {Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Post, Req, UseGuards} from '@nestjs/common';
+import {
+    Body,
+    Controller,
+    Delete,
+    Get,
+    HttpException,
+    HttpStatus,
+    Param,
+    Post,
+    Put,
+    Req,
+    UseGuards
+} from '@nestjs/common';
 import {QuestionsService} from "./questions.service";
 import {AuthUserGuard} from "../guards/auth-user.guard";
 import {AuthAssistantGuard} from "../guards/auth-assistant.guarrd";
@@ -110,6 +122,28 @@ export class QuestionsController {
         }
     }
 
+    @UseGuards(AuthMutualGuard)
+    @Put("/set-like/:userId/:questionId")
+    async setLike(@Param("userId") userId: string,
+                  @Param("questionId") questionId: string): Promise<Question>
+    {
+        try {
+            return this.questionsService.likeQuestion(userId, questionId)
+        } catch (error) {
+            throw new HttpException(error.message, HttpStatus.INTERNAL_SERVER_ERROR)
+        }
+    }
 
+    @UseGuards(AuthMutualGuard)
+    @Put("/set-dislike/:userId/:questionId")
+    async setDislike(@Param("userId") userId: string,
+                    @Param("questionId") questionId: string): Promise<Question>
+    {
+        try {
+            return this.questionsService.dislikeQuestion(userId, questionId)
+        } catch (error) {
+            throw new HttpException(error.message, HttpStatus.INTERNAL_SERVER_ERROR)
+        }
+    }
 
 }
