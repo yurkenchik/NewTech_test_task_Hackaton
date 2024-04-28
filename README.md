@@ -16,8 +16,9 @@ https://www.figma.com/file/PTMAwfVvnSSVHIIXjKXcSC/Untitled?type=design&node-id=0
 1. У папці server - є докер. Виконавши команду у терміналі(у папці з докером) + мати активний запущений докер: docker-compose up
 2. Це у папці сервер у терміна введення команд:
 1) npm install
-2) npm run dev
-3) Перехід по висвітленому посиланні.
+2) npm run start:dev (для ррозробки)
+3) npm run start (для продакшина)
+4) Перехід по висвітленому посиланні.
    
 # Учасники команди: 
 - [Yura](https://github.com/yurkenchik) - бекенд
