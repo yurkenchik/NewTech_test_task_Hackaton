@@ -14,10 +14,10 @@ export class QuestionCommentsService {
     }
 
     async createCommentToQuestion(createQuestionCommentDto: CreateQuestionCommentDto,
-                                  userId: string,
+                                  userEmail: string,
                                   questionId: string): Promise<QuestionComment>
     {
-        const question = await this.questionsService.getOneQuestion(userId, questionId)
+        const question = await this.questionsService.getOneQuestion(userEmail, questionId)
         const comment = this.questionCommentsRepository.create(createQuestionCommentDto)
 
         comment.question = question
@@ -26,8 +26,8 @@ export class QuestionCommentsService {
 
     }
 
-    async getQuestionComments(userId: string, questionId: string): Promise<QuestionComment[]> {
-        const question = await this.questionsService.getOneQuestion(userId, questionId)
+    async getQuestionComments(email: string, questionId: string): Promise<QuestionComment[]> {
+        const question = await this.questionsService.getOneQuestion(email, questionId)
         const questionComments = await this.questionCommentsRepository.find({
             where: {question: question}
         })
