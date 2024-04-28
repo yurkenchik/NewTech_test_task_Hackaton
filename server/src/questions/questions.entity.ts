@@ -9,12 +9,16 @@ import {
 } from "typeorm";
 import {User} from "../users/users.entity";
 import {QuestionComment} from "../question-comments/question-comments.entity";
+import {Answer} from "../answers/answers.entity";
 
 @Entity()
 export class Question {
 
     @PrimaryGeneratedColumn("uuid")
     id: string
+
+    @Column({type: "varchar", nullable: false})
+    topic: string
 
     @Column({type: "varchar", nullable: false})
     content: string
@@ -44,5 +48,9 @@ export class Question {
     @OneToMany(() => QuestionComment, questionComments => questionComments.question)
     @JoinTable()
     questionComments: QuestionComment[]
+
+    @OneToMany(() => Answer, answer => answer.question)
+    @JoinTable()
+    answers: Answer[]
 
 }

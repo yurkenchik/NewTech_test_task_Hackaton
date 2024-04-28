@@ -5,7 +5,7 @@ import { Repository } from 'typeorm';
 import { CreateAssistantDto } from './dto/create-assistant.dto';
 
 @Injectable()
-export class UsersService {
+export class AssistantsService {
 
     constructor(@InjectRepository(Assistant)
                 private readonly assistantRepository: Repository<Assistant>) {
@@ -14,7 +14,7 @@ export class UsersService {
     async createAssistant(createAssistantDto: CreateAssistantDto): Promise<Assistant> {
         const assistant = this.assistantRepository.create(createAssistantDto)
 
-        return this.assistantRepository.create(assistant)
+        return await this.assistantRepository.save(assistant)
     }
 
     async getAssistantByEmail(email: string): Promise<Assistant> {
@@ -33,6 +33,10 @@ export class UsersService {
         })
 
         return assistant
+    }
+
+    async getAssistants() {
+        return await this.assistantRepository.find()
     }
 
 }

@@ -1,5 +1,4 @@
 import {Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn} from "typeorm";
-import {Question} from "../questions/questions.entity";
 import { Answer } from '../answers/answers.entity';
 
 @Entity()

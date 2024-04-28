@@ -3,7 +3,7 @@ import {AuthUserService} from "./auth-user.service";
 import {RegisterUserDto} from "./dto/register-user.dto";
 import {ValidationPipe} from "../pipes/validation.pipe";
 import {LoginUserDto} from "./dto/login-user.dto";
-import {AuthUserGuard} from "./auth-user.guard";
+import {AuthUserGuard} from "../guards/auth-user.guard";
 import { TokenResponse } from '../auth-assistant/auth-assistant.service';
 import { User } from '../users/users.entity';
 

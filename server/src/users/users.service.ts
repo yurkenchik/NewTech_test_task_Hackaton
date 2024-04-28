@@ -33,4 +33,22 @@ export class UsersService {
         return user
     }
 
+    async getUserByUsername(username: string) {
+        const user = await this.userRepository.findOne({
+            where: {username: username}
+        })
+
+        return user
+    }
+
+    async deleteUser(id: string): Promise<User> {
+        const user = await this.getUserById(id)
+
+        return this.userRepository.remove(user)
+    }
+
+    async getUsers(): Promise<User[]> {
+        return await this.userRepository.find()
+    }
+
 }
